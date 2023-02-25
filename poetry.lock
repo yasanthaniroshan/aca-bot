@@ -61,6 +61,17 @@ dev = ["pytest", "cogapp", "pre-commit", "wheel"]
 tests = ["pytest"]
 
 [[package]]
+name = "asgiref"
+version = "3.6.0"
+description = "ASGI specs, helper code, and adapters"
+category = "main"
+optional = false
+python-versions = ">=3.7"
+
+[package.extras]
+tests = ["pytest", "pytest-asyncio", "mypy (>=0.800)"]
+
+[[package]]
 name = "async-timeout"
 version = "4.0.2"
 description = "Timeout context manager for asyncio programs"
@@ -183,8 +194,25 @@ test = ["coverage", "pytest", "pytest-asyncio", "pytest-cov", "pytest-mock", "ty
 voice = ["PyNaCl (>=1.3.0,<1.6)"]
 
 [[package]]
+name = "django"
+version = "4.1.7"
+description = "A high-level Python web framework that encourages rapid development and clean, pragmatic design."
+category = "main"
+optional = false
+python-versions = ">=3.8"
+
+[package.dependencies]
+asgiref = ">=3.5.2,<4"
+sqlparse = ">=0.2.2"
+tzdata = {version = "*", markers = "sys_platform == \"win32\""}
+
+[package.extras]
+argon2 = ["argon2-cffi (>=19.1.0)"]
+bcrypt = ["bcrypt"]
+
+[[package]]
 name = "flask"
-version = "2.2.2"
+version = "2.2.3"
 description = "A simple framework for building complex web applications."
 category = "main"
 optional = false
@@ -304,6 +332,21 @@ optional = false
 python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*"
 
 [[package]]
+name = "pynacl"
+version = "1.5.0"
+description = "Python binding to the Networking and Cryptography (NaCl) library"
+category = "main"
+optional = false
+python-versions = ">=3.6"
+
+[package.dependencies]
+cffi = ">=1.4.1"
+
+[package.extras]
+docs = ["sphinx (>=1.6.5)", "sphinx-rtd-theme"]
+tests = ["pytest (>=3.2.1,!=3.3.0)", "hypothesis (>=3.27.0)"]
+
+[[package]]
 name = "pyseto"
 version = "1.7.1"
 description = "A Python implementation of PASETO/PASERK."
@@ -319,6 +362,14 @@ pycryptodomex = ">=3.12.0,<4.0.0"
 
 [package.extras]
 docs = ["Sphinx[docs] (>=4.3.2,<6.0.0)", "sphinx-autodoc-typehints[docs] (==1.21.0)", "sphinx-rtd-theme[docs] (>=1.0.0,<2.0.0)"]
+
+[[package]]
+name = "pytz"
+version = "2022.7.1"
+description = "World timezone definitions, modern and historical"
+category = "main"
+optional = false
+python-versions = "*"
 
 [[package]]
 name = "replit"
@@ -356,12 +407,28 @@ socks = ["PySocks (>=1.5.6,!=1.5.7)"]
 use_chardet_on_py3 = ["chardet (>=3.0.2,<6)"]
 
 [[package]]
+name = "sqlparse"
+version = "0.4.3"
+description = "A non-validating SQL parser."
+category = "main"
+optional = false
+python-versions = ">=3.5"
+
+[[package]]
 name = "typing-extensions"
 version = "3.10.0.2"
 description = "Backported and Experimental Type Hints for Python 3.5+"
 category = "main"
 optional = false
 python-versions = "*"
+
+[[package]]
+name = "tzdata"
+version = "2022.7"
+description = "Provider of IANA time zone data"
+category = "main"
+optional = false
+python-versions = ">=2"
 
 [[package]]
 name = "urllib3"
@@ -405,13 +472,14 @@ multidict = ">=4.0"
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.10"
-content-hash = "55bb99212d1922d5f4d37f856d1894e5d038f512289945937d18ee953118cb2e"
+content-hash = "3ec2318e678d5623b8282f8032135e5d0f753f9291a57756ecf1950cd6247a39"
 
 [metadata.files]
 aiohttp = []
 aiosignal = []
 argon2-cffi = []
 argon2-cffi-bindings = []
+asgiref = []
 async-timeout = []
 attrs = []
 certifi = []
@@ -422,6 +490,7 @@ colorama = []
 cryptography = []
 discord = []
 "discord.py" = []
+django = []
 flask = []
 frozenlist = []
 idna = []
@@ -434,10 +503,14 @@ passlib = []
 protobuf = []
 pycparser = []
 pycryptodomex = []
+pynacl = []
 pyseto = []
+pytz = []
 replit = []
 requests = []
+sqlparse = []
 typing-extensions = []
+tzdata = []
 urllib3 = []
 werkzeug = []
 yarl = []
